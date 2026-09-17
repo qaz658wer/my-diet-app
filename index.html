@@ -3998,33 +3998,6 @@ document.getElementById("installBtn").addEventListener("click", function() {
   );
 });
 </script>
-let deferredPrompt;
-
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault();
-  deferredPrompt = event;
-  installBtn.style.display = "block";
-});
-
-installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) {
-    alert("請使用 Safari 開啟此 App，再從「分享」→「加入主畫面」安裝。");
-    return;
-  }
-
-  deferredPrompt.prompt();
-
-  const { outcome } = await deferredPrompt.userChoice;
-
-  if (outcome === "accepted") {
-    installBtn.style.display = "none";
-  }
-
-  deferredPrompt = null;
-});
-</script>
 
 </body>
 </html>
