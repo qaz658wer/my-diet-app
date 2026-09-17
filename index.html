@@ -3975,7 +3975,33 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 
-      if (!deferredPrompt) {
+<button id="installBtn" style="
+  display:none;
+  width:100%;
+  padding:14px;
+  margin:15px 0;
+  border:0;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+">
+  📱 PWA安裝
+</button>
+
+<script>
+let deferredPrompt;
+
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  installBtn.style.display = "block";
+});
+
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) {
     alert("請使用 Safari 開啟此 App，再從「分享」→「加入主畫面」安裝。");
     return;
   }
@@ -3991,6 +4017,6 @@ if ("serviceWorker" in navigator) {
   deferredPrompt = null;
 });
 </script>
-      
+
 </body>
 </html>
