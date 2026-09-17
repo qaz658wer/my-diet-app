@@ -3976,11 +3976,10 @@ if ("serviceWorker" in navigator) {
 </script>
 
 <button id="installBtn" style="
-  display:none;
   width:100%;
   padding:14px;
   margin:15px 0;
-  border:0;
+  border:none;
   border-radius:12px;
   font-size:16px;
   font-weight:bold;
@@ -3990,6 +3989,15 @@ if ("serviceWorker" in navigator) {
 </button>
 
 <script>
+document.getElementById("installBtn").addEventListener("click", function() {
+  alert(
+    "📱 加入「我的減脂」到主畫面\n\n" +
+    "① 點 Safari 下方的「分享」⬆️\n" +
+    "② 往下滑找到「加入主畫面」\n" +
+    "③ 點「加入」即可完成"
+  );
+});
+</script>
 let deferredPrompt;
 
 const installBtn = document.getElementById("installBtn");
