@@ -3964,6 +3964,7 @@ setInterval(()=>{
   </div>
 
 </div>
+      
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -3972,6 +3973,23 @@ if ("serviceWorker" in navigator) {
       .catch(error => console.error("Service Worker registration failed:", error));
   });
 }
+</script>
+
+      if (!deferredPrompt) {
+    alert("請使用 Safari 開啟此 App，再從「分享」→「加入主畫面」安裝。");
+    return;
+  }
+
+  deferredPrompt.prompt();
+
+  const { outcome } = await deferredPrompt.userChoice;
+
+  if (outcome === "accepted") {
+    installBtn.style.display = "none";
+  }
+
+  deferredPrompt = null;
+});
 </script>
       
 </body>
