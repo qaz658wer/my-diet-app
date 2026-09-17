@@ -1,0 +1,10 @@
+{
+  "name": "我的減脂",
+  "short_name": "我的減脂",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "description": "我的個人減脂管理 App",
+  "icons": []
+}
