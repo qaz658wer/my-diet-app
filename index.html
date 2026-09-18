@@ -1769,34 +1769,6 @@ function saveData(){
    PWA
 ===================================================== */
 
-if("serviceWorker" in navigator){
-
-  window.addEventListener(
-    "load",
-    ()=>{
-
-      navigator.serviceWorker
-        .register("./sw.js")
-        .then(()=>{
-
-          console.log(
-            "PWA Service Worker 已啟用"
-          );
-
-        })
-        .catch(error=>{
-
-          console.log(
-            "Service Worker 無法啟用：",
-            error
-          );
-
-        });
-
-    }
-  );
-
-}
 
 
 let deferredPrompt = null;
